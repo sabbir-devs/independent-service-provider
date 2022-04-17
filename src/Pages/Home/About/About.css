@@ -1,0 +1,60 @@
+.about{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 5%;
+    margin: 20px 0;
+}
+.about-half{
+    width: 50%;
+    padding: 20px;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+}
+.about-half img{
+    width: 300px;
+    animation: myImg 2s infinite;
+    border-radius: 5px;
+}
+@keyframes myImg {
+    0%{
+        box-shadow: 0 0 0 0 #72ae31;
+    }
+    50%{
+        box-shadow: 0 0 10px 0 #72ae31;
+        box-shadow: 0 0 20px 1px #72ae31;
+        box-shadow: 0 0 30px 2px #72ae31;
+        box-shadow: 0 0 40px 3 #72ae31;
+    }
+    100%{
+        box-shadow: 0 0 0 0 #72ae31;
+    }
+}
+.about-half h1{
+    font-size: 30px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.about-half .imoji{
+    font-size: 40px;
+    color: #72ae31;
+}
+.about-half p{
+    padding: 10px;
+    margin-top: 20px;
+    letter-spacing: 1px;
+}
+/*---------------------------------------- Media Quary for responsive website ----------------------------------------*/
+@media only screen and (max-width:668px) {
+    .about{
+        padding: 0;
+        display: grid;
+    }
+    .about-half{
+        width: 100%;
+    }
+}
