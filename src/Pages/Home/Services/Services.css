@@ -1,0 +1,9 @@
+.services{
+    padding-right: 5%;
+    padding-left: 5%;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}

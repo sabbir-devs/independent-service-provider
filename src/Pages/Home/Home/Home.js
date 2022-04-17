@@ -10,6 +10,7 @@ const Home = () => {
                 <p>PREMIUM ONLINE & INDIVIDUAL PERSONAL TRAINING IN FAREHAM WITH ROBERT COTTERILL</p>
                 <button>See Our service</button></div>
             </div>
+            
         </div>
     );
 };

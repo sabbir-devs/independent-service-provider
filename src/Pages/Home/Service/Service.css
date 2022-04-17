@@ -1,0 +1,53 @@
+.service{
+    width: 350px;
+    border: 1px solid #000;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+    text-shadow: 0 0 1px #000;
+}
+.service-top{
+    text-align: center;
+    padding: 5px;
+}
+.service-top h1{
+    margin-bottom: 5px;
+
+}
+.service-top img{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+}
+.service-medle{
+    
+}
+.service-medle p{
+    padding: 10px 2px;
+    border-top: 1px solid #000;
+    text-align: center;
+    height: 80px;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+}
+.service-bottom button{
+    padding: 8px 30px;
+    border: 2px solid #000;
+    border-radius: 25px;
+    color: #000;
+    font-size: 16px;
+    font-weight: 900;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background: transparent;
+    transition: .5s;
+}
+.service-bottom button:hover{
+    background: #000;
+    color: #fff;
+    box-shadow: 0 0 10px 1px #000;
+}
