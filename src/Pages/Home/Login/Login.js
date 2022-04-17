@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './Login.css';
 import { FcGoogle } from 'react-icons/fc';
-import { AiFillEye } from 'react-icons/ai';
+import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai';
 
 const Login = () => {
     const [toggle, setToggle] = useState(false);
@@ -24,11 +24,11 @@ const Login = () => {
                 </div>
                 <div className='email-password-input'>
                     <input className='inputs' type={regTogglePassInput ? ('password'):('text')} name="password" placeholder='Password...' id="" />
-                    <label onClick={() => setRegTogglePassInput(!regTogglePassInput)} className='labels' htmlFor="password"><AiFillEye></AiFillEye></label>
+                    <label onClick={() => setRegTogglePassInput(!regTogglePassInput)} className='labels' htmlFor="password">{regTogglePassInput ? (<AiFillEye></AiFillEye>):(<AiFillEyeInvisible></AiFillEyeInvisible>)}</label>
                 </div>
                 <div className='email-password-input'>
-                    <input className='inputs' type="password" name="password" placeholder='Password...' id="" />
-                    <label className='labels' htmlFor="password"><AiFillEye></AiFillEye></label>
+                    <input className='inputs' type={toggleConPassInput ? ('password'):('text')} name="password" placeholder='Password...' id="" />
+                    <label onClick={() => setToggleConPassInput(!toggleConPassInput)} className='labels' htmlFor="password">{toggleConPassInput ? (<AiFillEye></AiFillEye>):(<AiFillEyeInvisible></AiFillEyeInvisible>)}</label>
                 </div>
                 
                 <div>

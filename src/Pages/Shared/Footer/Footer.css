@@ -4,3 +4,18 @@
     text-align: center;
     font-size: 20px;
 }
+.dynamic-year{
+    color: #72ae31;
+    font-size: 35px;
+}
+
+
+/*---------------------------------------- Media Quary for responsive website ----------------------------------------*/
+@media only screen and (max-width:668px) {
+    .footer{
+        font-size: 18px;
+    }
+    .dynamic-year{
+        font-size: 24px;
+    }
+}
