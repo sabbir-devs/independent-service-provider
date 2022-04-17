@@ -4,14 +4,30 @@
     justify-content: space-between;
     margin-right: 5%;
     margin-left: 5%;
-    color: #72ae31;
     padding-top: 10px;
     padding-bottom: 10px;
 }
-nav{
+.header h1{
+    color: #72ae31;
+    font-size: 40px;
+}
+.title{
+    font-weight: 300;
+    font-size: 25px;
+    color: #fff;
+}
+.nav{
     display: flex;
     align-items: center;
     justify-content: center;
+}
+.nav-bar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.nav-icon{
+    display: none;
 }
 .active-list{
     color: #fff;
@@ -75,4 +91,55 @@ nav{
 }
 .login-btn:hover{
     box-shadow: 0 0 10px 2px #72ae31;
+}
+
+
+
+
+/*---------------------------------------- Media Quary for responsive website ----------------------------------------*/
+@media only screen and (max-width:668px) {
+    .header h1{
+        font-size: 20px;
+    }
+    .title{
+        font-size: 15px;
+    }
+    .nav{
+        display: grid;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        left: 50%;
+        top: 20px;
+        background: #000;
+        width: 150px;
+        padding: 20px;
+        transition: .5s;
+    }
+    .nav-bar{
+        display: grid;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        left: 50%;
+        top: -200px;
+        background: #000;
+        width: 150px;
+        transition: .5s;
+        margin-top: 5px;
+    }
+    .nav-icon{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        font-size: 25px;
+        background: transparent;
+        border: 2px solid rgb(255, 255, 255);
+        border-radius: 2px;
+        padding: 3px;
+    }
+    .login-btn{
+        margin-top: 5px;
+    }
 }
