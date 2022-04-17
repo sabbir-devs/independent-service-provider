@@ -1,0 +1,21 @@
+.not-found{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 90vh;
+    background: rgba(255, 255, 255, 0.266);
+}
+.not-found img{
+    width: 300px;
+    border-radius: 5px;
+    animation: error 2s infinite;
+}
+@keyframes error {
+    0%{box-shadow: 0 0 0 0 red;}
+    50%{
+        box-shadow: 0 0 10px 1px red;
+        box-shadow: 0 0 20px 2px red;
+        box-shadow: 0 0 30px 3px red;
+    }
+    100%{box-shadow: 0 0 0 0 red;}
+}
