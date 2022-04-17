@@ -5,7 +5,7 @@ import { BiLogIn, BiLogOut, } from 'react-icons/bi';
 import { AiOutlineMenuFold, AiOutlineClose  } from 'react-icons/ai';
 
 const Header = () => {
-    const [open, setOpen] = useState(false)
+    const [open, setOpen] = useState(false);
     return (
         <div className='header'>
             <h1><span className='title'>The</span> BODYCOACH</h1>
