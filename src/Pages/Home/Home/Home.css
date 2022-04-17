@@ -1,0 +1,42 @@
+.home{
+    background: url('../../../images/gym-banner.jpg');
+    background-position: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+.banner-text{
+    width: 50%;
+    color: #fff;
+    height: 500px;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+
+}
+.banner-text h1{
+    font-size: 70px;
+    font-weight: 500;
+    line-height: 80px;
+    /* letter-spacing: .5px; */
+}
+.banner-text p{
+    font-size: 20px;
+    font-weight: 700;
+    color: #fff;
+    margin-top: 15px;
+}
+.banner-text button{
+    padding: 10px 20px;
+    border: 2px solid #fff;
+    border-radius: 25px;
+    color: #fff;
+    background: transparent;
+    font-size: 16px;
+    margin-top: 25px;
+}
+.banner-text button:hover{
+    background: rgba(255, 255, 255, 0.305);
+    box-shadow: 0 0 10px 2px #fff;
+}
