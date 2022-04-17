@@ -8,6 +8,7 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   sendEmailVerification,
+  sendPasswordResetEmail,
 } from "firebase/auth";
 import { auth } from "../../../Firebase/firebase.init";
 import { useNavigate } from "react-router-dom";
@@ -15,6 +16,7 @@ import { useNavigate } from "react-router-dom";
 const provider = new GoogleAuthProvider();
 const Login = () => {
   const navigate = useNavigate();
+  const [email, setEmail] = useState('')
   const [toggle, setToggle] = useState(false);
   const [togglePassInput, setTogglePassInput] = useState(false);
   const [regTogglePassInput, setRegTogglePassInput] = useState(false);
@@ -36,6 +38,9 @@ const Login = () => {
         // ...
       });
   };
+  const forgetEmaiInput =(event) => {
+      setEmail(event.target.value)
+  }
   const handleFormSubmitLogin = (event) => {
     event.preventDefault();
     const email = event.target.email.value;
@@ -48,6 +53,17 @@ const Login = () => {
         console.log(error)
       });
   };
+  const forgetPassword = () => {
+      console.log(email)
+    sendPasswordResetEmail(auth, email)
+  .then(() => {
+    console.log('password reset sucessful')
+  })
+  .catch((error) => {
+    console.log(error)
+    // ..
+  });
+  }
   const googleSignIn = () => {
     console.log("clicked");
     signInWithPopup(auth, provider)
@@ -135,6 +151,7 @@ const Login = () => {
           <h3>Please Login!!</h3>
           <div className="email-password-input">
             <input
+            onBlur={forgetEmaiInput}
               className="inputs"
               type="email"
               name="email"
@@ -164,13 +181,12 @@ const Login = () => {
           </div>
 
           <div>
-            <p className="forget-pass">forget password?</p>
+            <p onClick={() => forgetPassword()} className="forget-pass">forget password?</p>
           </div>
           <input className="register-btn" type="submit" value="Login" />
           <p style={{ fontSize: "18px" }}>
             Don't have an account?
             <span onClick={() => setToggle(!toggle)} className="forget-pass">
-              {" "}
               create account
             </span>
           </p>
