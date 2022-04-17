@@ -89,6 +89,7 @@
     margin-left: 3px;
     text-decoration: none;
     color: #fff;
+    border: none;
     text-transform: uppercase;
 }
 .login-btn:hover{

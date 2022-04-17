@@ -8,9 +8,12 @@ import Services from './Pages/Home/Services/Services';
 import NotFound from './Pages/Shared/NotFound/NotFound';
 import Login from './Pages/Home/Login/Login';
 import About from './Pages/Home/About/About';
+import ProtectedPage from './Pages/Home/ProtectedPage/ProtectedPage';
+import Booking from './Pages/Home/Booking/Booking';
 
 
 function App() {
+  
   return (
     <div className="App">
       <Header></Header>
@@ -20,6 +23,10 @@ function App() {
         <Route path='/blog' element={<Blog></Blog>}></Route>
         <Route path='/about' element={<About></About>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
+        <Route path='/protected' element={
+        <ProtectedPage>
+          <Booking></Booking>
+        </ProtectedPage>}></Route>
         <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
       <Footer></Footer>

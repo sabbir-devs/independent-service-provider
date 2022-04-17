@@ -1,8 +1,10 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Service.css'
 
 const Service = ({service}) => {
-    const {img, title, price, date, advantage1, advantage2, advantage3, advantage4, advantage5, advantage6, advantage7, advantage8, advantage9, advantage10, advantage11} = service
+    const {img, title, price, date, advantage1, advantage2, advantage3, advantage4, advantage5, advantage6, advantage7, advantage8, advantage9, advantage10, advantage11} = service;
+    const navigate = useNavigate();
     return (
         <div className='service'>
             <div className="service-top">
@@ -25,7 +27,7 @@ const Service = ({service}) => {
                 <p style={{borderBottom:'1px solid #000'}}>{advantage11}</p>
             </div>
             <div className="service-bottom">
-                <button>Start Now</button>
+                <button onClick={() => navigate('/protected')}>Start Now</button>
             </div>
         </div>
     );

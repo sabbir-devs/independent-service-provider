@@ -1,0 +1,44 @@
+.booking{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: url('../../../images/booking-banner.jpg');
+    background-position: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+form{
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.453);
+    border: 2px solid #fff;
+    border-radius: 2px;
+    margin: 50px 0;
+}
+.form-input{
+    display: grid;
+}
+.form-input input{
+    padding: 6px 10px;
+}
+label{
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 5px;
+    margin-top: 10px;
+}
+textarea{
+    font-size: 16px;
+    font-weight: 700;
+}
+textarea:focus{
+    outline: none;
+}
+.submit-btn{
+    padding: 10px 20px;
+    border: none;
+    background: #72ae31;
+    border-radius: 4px;
+    font-size: 16px;
+    margin-top: 20px;
+}

@@ -51,6 +51,31 @@ input::placeholder{
     color: #000;
     font-size: 23px;
 }
+.option{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 15px 0;
+}
+.option-left{
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(to right, #72ae31, #305a04);
+    border-radius: 5px;
+}
+.option p{
+    margin: 0 10px;
+    padding: 4px 9px 6px 8px;
+    background: #fff;
+    color: #000;
+    border-radius: 50%;
+}
+.option-right{
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(to left, #72ae31, #305a04);
+    border-radius: 5px;
+}
 .google-signup{
     display: flex;
     align-items: center;
@@ -60,6 +85,7 @@ input::placeholder{
     border: none;
     font-size: 18px;
     margin-top: 20px;
+    cursor: pointer;
 }
 .google-signup:hover{
     box-shadow: 0 0 10px 1px #fff;
@@ -82,7 +108,7 @@ input::placeholder{
     box-shadow: inset 0 0 10px 1px #000;
 }
 .forget-pass{
-    color: rgb(114 174 49);
+    color: #72ae31;
     font-size: 18px;
     cursor: pointer;
 }
