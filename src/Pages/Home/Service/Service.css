@@ -49,3 +49,10 @@
     color: #fff;
     box-shadow: 0 0 10px 1px #000;
 }
+
+/*------------------------------------------ Media Quary for website responsive ------------------------------------------*/
+@media only screen and (max-width:668px) {
+    .service{
+        width: 100%;
+    }
+}
