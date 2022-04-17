@@ -40,3 +40,15 @@
     background: rgba(255, 255, 255, 0.305);
     box-shadow: 0 0 10px 2px #fff;
 }
+/*------------------------------------------ Media Quary for website responsive ------------------------------------------*/
+@media only screen and (max-width:668px) {
+    .banner-text{
+        width: 100%;
+    }
+    .banner-text h1{
+        font-size: 40px;
+    }
+    .banner-text p{
+        font-size: 16px;
+    }
+}
