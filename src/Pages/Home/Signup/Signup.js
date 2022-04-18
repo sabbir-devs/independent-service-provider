@@ -12,23 +12,11 @@ const Signup = () => {
     const navigate = useNavigate()
   const [regTogglePassInput, setRegTogglePassInput] = useState(false);
   const [toggleConPassInput, setToggleConPassInput] = useState(false);
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('')
-  const [confirmPassword, setConfirmPassword] = useState('')
+  const [email, setEmail] = useState({value:"", error:""});
+  const [password, setPassword] = useState({value:"", error:""})
+  const [confirmPassword, setConfirmPassword] = useState({Value:"", error:""})
 
-  const handleFormSubmit = (event) => {
-    event.preventDefault();
-    const email = event.target.email.value;
-    const password = event.target.password.value;
-    createUserWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        navigate("/");
-        varifyEmail()
-      })
-      .catch((error) => {
-          console.log(error)
-      });
-  };
+  
 
   const varifyEmail = () => {
     sendEmailVerification(auth.currentUser)
@@ -39,19 +27,47 @@ const Signup = () => {
     });
   }
 
-  console.log(email, password, confirmPassword)
+  console.log(email)
 
   const emailInput = emailInput => {
-      setEmail(emailInput);
+      if(/\S+@\S+\.\S+/.test(emailInput)){
+          setEmail({value:emailInput, error:''});
+      }else{
+          setEmail({value:'', error:'Please Enter Valid Email'})
+      }
+      
   }
   const passwordInput = passwordInput => {
-      setPassword(passwordInput)
+      if(passwordInput.length < 6){
+        setPassword({value:'', error:'Password Minimum of 6 Characters'})
+      }else{
+          setPassword({value:passwordInput, error:''})
+      }
   }
   const confirmPasswordInput = confirmPasswordInput => {
-      setConfirmPassword(confirmPasswordInput)
+      if(confirmPasswordInput === password){
+          setConfirmPassword({value:confirmPasswordInput, error:''})
+      }else{
+          setConfirmPassword({value:'', error:"Password don'tmatched"})
+      }
   }
 
+  // create user with email and password
+  const handleFormSubmit = (event) => {
+    event.preventDefault();
+    // const email = event.target.email.value;
+    // const password = event.target.password.value;
+    createUserWithEmailAndPassword(auth, email.value, password.value)
+      .then((userCredential) => {
+        navigate("/");
+        varifyEmail()
+      })
+      .catch((error) => {
+          console.log(error)
+      });
+  };
 
+  // google signin
   const googleSignIn = () => {
     signInWithPopup(auth, provider)
       .then((result) => {
@@ -61,6 +77,7 @@ const Signup = () => {
         console.log(error);
       });
   };
+
     return (
         <div className='login'>
             <form onSubmit={handleFormSubmit} className="form">
@@ -73,7 +90,9 @@ const Signup = () => {
               name="email"
               placeholder="Email..."
               id=""
+              required
             />
+            <p className='error-text'>{email.error}</p>
           </div>
           <div className="email-password-input">
             <input
@@ -83,6 +102,7 @@ const Signup = () => {
               name="password"
               placeholder="Password..."
               id=""
+              required
             />
             <label
               onClick={() => setRegTogglePassInput(!regTogglePassInput)}
@@ -95,6 +115,7 @@ const Signup = () => {
                 <AiFillEyeInvisible></AiFillEyeInvisible>
               )}
             </label>
+            <p className='error-text'>{password.error}</p>
           </div>
           <div className="email-password-input">
             <input
@@ -104,6 +125,7 @@ const Signup = () => {
               name="confirmPassword"
               placeholder="Confirm Password..."
               id=""
+              required
             />
             <label
               onClick={() => setToggleConPassInput(!toggleConPassInput)}
@@ -112,14 +134,11 @@ const Signup = () => {
             >
               {toggleConPassInput ? (
                 <AiFillEye></AiFillEye>
-              )
-              
-              : 
-              
-              (
+              ) : (
                 <AiFillEyeInvisible></AiFillEyeInvisible>
               )}
             </label>
+            <p className='error-text'>{confirmPassword.error}</p>
           </div>
 
           <input className="register-btn" type="submit" value="Register" />

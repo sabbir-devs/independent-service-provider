@@ -33,6 +33,11 @@ input::placeholder{
     color: #000;
     font-weight: 700;
 }
+.error-text{
+    font-size: 14px;
+    color: red;
+    margin-top: 5px;
+}
 .email-password-input{
     margin-top: 20px;
     margin-bottom: 20px;

@@ -1,10 +1,15 @@
 import { Navigate, useLocation } from "react-router-dom";
 import { auth } from "../../../Firebase/firebase.init";
+import { useAuthState } from 'react-firebase-hooks/auth';
+import Spiner from "../Spiner/Spiner";
 
 const ProtectedPage = ({ children }) => {
-  console.log(children);
+  const [user, loading, ] = useAuthState(auth);
   const location = useLocation();
-  const user = auth.currentUser;
+  // const user = auth.currentUser;
+  if(loading){
+    return <Spiner></Spiner>
+  }
   if (user) {
     return children;
   } else {

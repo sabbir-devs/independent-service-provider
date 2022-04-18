@@ -20,10 +20,18 @@ const Login = () => {
 
 
   const emaiInput =(emailInput) => {
-      setEmail(emailInput)
+    if(/\S+@\S+\.\S+/.test(emailInput)){
+      setEmail({value:emailInput, error:''});
+  }else{
+      setEmail({value:'', error:'Please Enter Valid Email'})
+  }
   }
   const passwordInput = (passwordInput) => {
-    setPassword(passwordInput)
+    if(passwordInput.length < 6){
+      setPassword({value:'', error:'Password Minimum of 6 Characters'})
+    }else{
+        setPassword({value:passwordInput, error:''})
+    }
   }
   console.log(email, password)
 
@@ -43,13 +51,12 @@ const Login = () => {
 
   const forgetPassword = () => {
       console.log(email)
-    sendPasswordResetEmail(auth, email)
+    sendPasswordResetEmail(auth, email.value)
   .then(() => {
     console.log('password reset sucessful')
   })
   .catch((error) => {
     console.log(error)
-    // ..
   });
   }
 
@@ -78,7 +85,9 @@ const Login = () => {
               name="email"
               placeholder="Email..."
               id=""
+              required
             />
+            <p className='error-text'>{email.error}</p>
           </div>
           <div className="email-password-input">
             <input
@@ -88,6 +97,7 @@ const Login = () => {
               name="password"
               placeholder="Password..."
               id=""
+              required
             />
             <label
               onClick={() => setTogglePassInput(!togglePassInput)}
@@ -100,6 +110,7 @@ const Login = () => {
                 <AiFillEyeInvisible></AiFillEyeInvisible>
               )}
             </label>
+            <p className='error-text'>{password.error}</p>
           </div>
 
           <div>
