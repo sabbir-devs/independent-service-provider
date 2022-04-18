@@ -11,6 +11,7 @@ import About from './Pages/Home/About/About';
 import ProtectedPage from './Pages/Home/ProtectedPage/ProtectedPage';
 import Booking from './Pages/Home/Booking/Booking';
 import Signup from './Pages/Home/Signup/Signup';
+import { Toaster } from 'react-hot-toast';
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
   return (
     <div className="App">
       <Header></Header>
+      <Toaster></Toaster>
       <Routes>
         <Route path='/' element={<Home></Home>}></Route>
         <Route path='/services' element={<Services></Services>}></Route>

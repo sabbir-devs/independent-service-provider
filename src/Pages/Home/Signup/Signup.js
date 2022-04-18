@@ -5,27 +5,19 @@ import { auth } from '../../../Firebase/firebase.init';
 import './Signup.css';
 import { FcGoogle } from "react-icons/fc";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
+import toast from 'react-hot-toast';
 
 
 const provider = new GoogleAuthProvider();
 const Signup = () => {
     const navigate = useNavigate()
+    const [error, setError] = useState('')
   const [regTogglePassInput, setRegTogglePassInput] = useState(false);
   const [toggleConPassInput, setToggleConPassInput] = useState(false);
   const [email, setEmail] = useState({value:"", error:""});
   const [password, setPassword] = useState({value:"", error:""})
   const [confirmPassword, setConfirmPassword] = useState({Value:"", error:""})
 
-  
-
-  const varifyEmail = () => {
-    sendEmailVerification(auth.currentUser)
-    .then(() => {
-      // Email verification sent!
-      // ...
-      console.log('email varification send')
-    });
-  }
 
   console.log(email)
 
@@ -45,25 +37,24 @@ const Signup = () => {
       }
   }
   const confirmPasswordInput = confirmPasswordInput => {
-      if(confirmPasswordInput === password){
+      if(confirmPasswordInput !== password){
           setConfirmPassword({value:confirmPasswordInput, error:''})
       }else{
-          setConfirmPassword({value:'', error:"Password don'tmatched"})
+          setConfirmPassword({value:'', error:"Password don't matched"})
       }
   }
 
   // create user with email and password
   const handleFormSubmit = (event) => {
     event.preventDefault();
-    // const email = event.target.email.value;
-    // const password = event.target.password.value;
     createUserWithEmailAndPassword(auth, email.value, password.value)
       .then((userCredential) => {
         navigate("/");
         varifyEmail()
       })
       .catch((error) => {
-          console.log(error)
+        const errorMassage = error.message
+        setError(errorMassage)
       });
   };
 
@@ -71,12 +62,22 @@ const Signup = () => {
   const googleSignIn = () => {
     signInWithPopup(auth, provider)
       .then((result) => {
+        toast.success("Log successful")
         navigate("/");
       })
       .catch((error) => {
-        console.log(error);
+        const errorMassage = error.message
+        setError(errorMassage)
       });
   };
+
+  // email varification
+  const varifyEmail = () => {
+    sendEmailVerification(auth.currentUser)
+    .then(() => {
+      toast.success('email varification send', {id:'toast8'})
+    });
+  }
 
     return (
         <div className='login'>
@@ -140,7 +141,7 @@ const Signup = () => {
             </label>
             <p className='error-text'>{confirmPassword.error}</p>
           </div>
-
+          <p style={{color:'red'}}>{error}</p>
           <input className="register-btn" type="submit" value="Register" />
           <p style={{ fontSize: "18px" }}>
             Alrady have an account?{" "}

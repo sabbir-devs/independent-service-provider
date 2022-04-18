@@ -1,9 +1,15 @@
 import React from "react";
+import toast from "react-hot-toast";
 import "./Booking.css";
 
 const Booking = () => {
     const handleOnSubmit = (event) => {
         event.preventDefault()
+       event.target.email.value = ''
+        event.target.phone.value = '';
+        event.target.name.value = '';
+        event.target.massage.value = '';
+        toast.success("thank you for the booking", {id:'toast3'})
     }
   return (
     <div className="booking">
@@ -30,8 +36,8 @@ const Booking = () => {
           <input type="text" name="name" placeholder="Name" id="" />
         </div>
         <div className="form-input">
-          <label htmlFor="message">Your Address</label>
-          <textarea name="message" id="" cols="50" rows="5" placeholder="Your Address..." style={{width:'400px', padding:'10px', height:'150px'}}></textarea>
+          <label htmlFor="massage">Your Address</label>
+          <textarea name="massage" id="" cols="50" rows="5" placeholder="Your Address..." style={{width:'400px', padding:'10px', height:'150px'}}></textarea>
         </div>
         <input className="submit-btn" type="submit" value="Submit" />
       </form>

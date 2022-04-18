@@ -10,10 +10,12 @@ import {
 } from "firebase/auth";
 import { auth } from "../../../Firebase/firebase.init";
 import { useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
 
 const provider = new GoogleAuthProvider();
 const Login = () => {
   const navigate = useNavigate();
+  const [error, setError] = useState('')
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [togglePassInput, setTogglePassInput] = useState(false);
@@ -33,7 +35,6 @@ const Login = () => {
         setPassword({value:passwordInput, error:''})
     }
   }
-  console.log(email, password)
 
   const handleFormSubmitLogin = (event) => {
     event.preventDefault();
@@ -41,34 +42,37 @@ const Login = () => {
     const password = event.target.password.value;
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
+        toast.success('Login sucessful')
         navigate("/");
       })
       .catch((error) => {
-        console.log(error)
+        const errorMassage = error.message;
+        setError(errorMassage)
       });
   };
 
 
   const forgetPassword = () => {
-      console.log(email)
     sendPasswordResetEmail(auth, email.value)
   .then(() => {
-    console.log('password reset sucessful')
+    toast.success('password reset sucessful', {id:'toast6'})
   })
   .catch((error) => {
-    console.log(error)
+    const errorMassage = error.message;
+    setError(errorMassage)
   });
   }
 
 
   const googleSignIn = () => {
-    console.log("clicked");
     signInWithPopup(auth, provider)
       .then((result) => {
+        toast.success('Login sucess', {id:'toster2'})
         navigate("/");
       })
       .catch((error) => {
-        console.log(error);
+        const errorMassage = error.message
+        setError(errorMassage)
       });
   };
 
@@ -116,6 +120,7 @@ const Login = () => {
           <div>
             <p onClick={() => forgetPassword()} className="forget-pass">forget password?</p>
           </div>
+          <p style={{color:'red'}}>{error}</p>
           <input className="register-btn" type="submit" value="Login" />
           <p style={{ fontSize: "18px" }}>
             Don't have an account?
