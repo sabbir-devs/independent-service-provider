@@ -1,0 +1,117 @@
+.login{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: url('../../../images/login-banner.jpg');
+    background-position: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+.form{
+    color: #fff;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    width: 400px;
+    background: rgba(28, 60, 73, 0.277);
+    border: 3px solid rgb(28, 60, 73);
+    box-shadow: 0 0 10px 2px rgb(28, 60, 73);
+    border-radius: 3px;
+    padding: 20px;
+}
+input:focus{
+    outline: none;
+
+}
+input{
+    font-size: 14px;
+    font-weight: 700;
+}
+input::placeholder{
+    font-size: 14px;
+    color: #000;
+    font-weight: 700;
+}
+.email-password-input{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.email-password-input .inputs{
+    padding: 10px 2px;
+    border: none;
+    border-radius: 2px;
+    width: 350px;
+    position: relative;
+}
+.email-password-input .labels{
+    position: absolute;
+    margin-left: -30px;
+    margin-top: 8px;
+    color: #000;
+    font-size: 23px;
+}
+.option{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 15px 0;
+}
+.option-left{
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(to right, #72ae31, #305a04);
+    border-radius: 5px;
+}
+.option p{
+    margin: 0 10px;
+    padding: 4px 9px 6px 8px;
+    background: #fff;
+    color: #000;
+    border-radius: 50%;
+}
+.option-right{
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(to left, #72ae31, #305a04);
+    border-radius: 5px;
+}
+.google-signup{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 25px;
+    padding: 10px 20px;
+    border: none;
+    font-size: 18px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+.google-signup:hover{
+    box-shadow: 0 0 10px 1px #fff;
+}
+.register-btn{
+    background: rgb(114 174 49);
+    color: #fff;
+    font-size: 16pxs;
+    padding: 10px 20px;
+    font-size: 15px;
+    border: none;
+    border-radius: 3px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+.register-btn:hover{
+    box-shadow: 0 0 10px 1px rgb(114 174 49);
+}
+.google-signup:active{
+    box-shadow: inset 0 0 10px 1px #000;
+}
+.forget-pass{
+    color: #72ae31;
+    font-size: 18px;
+    cursor: pointer;
+}
+.forget-pass:hover{
+    text-decoration: underline;
+}

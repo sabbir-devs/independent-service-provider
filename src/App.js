@@ -10,6 +10,7 @@ import Login from './Pages/Home/Login/Login';
 import About from './Pages/Home/About/About';
 import ProtectedPage from './Pages/Home/ProtectedPage/ProtectedPage';
 import Booking from './Pages/Home/Booking/Booking';
+import Signup from './Pages/Home/Signup/Signup';
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
         <Route path='/blog' element={<Blog></Blog>}></Route>
         <Route path='/about' element={<About></About>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
+        <Route path='/signup' element={<Signup></Signup>}></Route>
         <Route path='/protected' element={
         <ProtectedPage>
           <Booking></Booking>
