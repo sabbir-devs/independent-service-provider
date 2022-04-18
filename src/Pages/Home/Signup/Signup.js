@@ -1,5 +1,5 @@
 import { createUserWithEmailAndPassword, GoogleAuthProvider, sendEmailVerification, signInWithPopup } from 'firebase/auth';
-import React, { useState } from 'react';
+import React, {  useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { auth } from '../../../Firebase/firebase.init';
 import './Signup.css';
@@ -23,16 +23,34 @@ const Signup = () => {
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         navigate("/");
+        varifyEmail()
       })
       .catch((error) => {
           console.log(error)
       });
-      sendEmailVerification(auth.currentUser)
-      .then(() => {
-        // Email verification sent!
-        // ...
-      });
   };
+
+  const varifyEmail = () => {
+    sendEmailVerification(auth.currentUser)
+    .then(() => {
+      // Email verification sent!
+      // ...
+      console.log('email varification send')
+    });
+  }
+
+  console.log(email, password, confirmPassword)
+
+  const emailInput = emailInput => {
+      setEmail(emailInput);
+  }
+  const passwordInput = passwordInput => {
+      setPassword(passwordInput)
+  }
+  const confirmPasswordInput = confirmPasswordInput => {
+      setConfirmPassword(confirmPasswordInput)
+  }
+
 
   const googleSignIn = () => {
     signInWithPopup(auth, provider)
@@ -49,6 +67,7 @@ const Signup = () => {
           <h3>Please Register!!</h3>
           <div className="email-password-input">
             <input
+              onBlur={(event) => emailInput(event.target.value)}
               className="inputs"
               type="email"
               name="email"
@@ -58,6 +77,7 @@ const Signup = () => {
           </div>
           <div className="email-password-input">
             <input
+              onBlur={(event) => passwordInput(event.target.value)}
               className="inputs"
               type={regTogglePassInput ? "password" : "text"}
               name="password"
@@ -78,6 +98,7 @@ const Signup = () => {
           </div>
           <div className="email-password-input">
             <input
+              onBlur={(event) => confirmPasswordInput(event.target.value)}
               className="inputs"
               type={toggleConPassInput ? "password" : "text"}
               name="confirmPassword"

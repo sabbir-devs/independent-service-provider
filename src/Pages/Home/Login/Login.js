@@ -5,9 +5,7 @@ import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import {
   GoogleAuthProvider,
   signInWithPopup,
-  createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
-  sendEmailVerification,
   sendPasswordResetEmail,
 } from "firebase/auth";
 import { auth } from "../../../Firebase/firebase.init";

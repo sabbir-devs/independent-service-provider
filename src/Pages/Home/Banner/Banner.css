@@ -1,0 +1,53 @@
+.banner{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 5%;
+    background: #fff;
+}
+.half-banner{
+    width: 50%;
+    padding: 20px;
+
+}
+.half-banner img{
+    width: 100%;
+    border-radius: 5px;
+}
+.half-banner h1{
+    font-size: 50px;
+    font-weight: 400;
+}
+.half-banner p{
+    font-size: 18px;
+    font-weight: 700;
+    margin-top: 10px;
+}
+.half-banner button{
+    padding: 10px 20px;
+    background: #000;
+    color: #fff;
+    border: 2px solid #000;
+    border-radius: 25px;
+    margin-top: 20px;
+    font-size: 15px;
+    font-weight: 600;
+}
+.half-banner button:hover{
+    background: #fff;
+    color: #000;
+}
+
+
+/*---------------------------------------- Media Quary for responsive website ----------------------------------------*/
+@media only screen and (max-width:668px) {
+    .banner{
+        display: grid;
+        align-items: center;
+        justify-content: center;
+        padding: 0 0;
+    }
+    .half-banner{
+        width: 100%;
+    }
+}
