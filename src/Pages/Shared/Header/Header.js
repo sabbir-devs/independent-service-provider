@@ -42,9 +42,9 @@ const Header = () => {
                 <NavLink className={({isActive}) => (isActive ? 'active-list' : 'list')} to='/about'>About me</NavLink>
                 <div style={{display:'flex', alignItems:'center', justifyContent:'center'}}>
                     {currentUser?.email ? 
-                    (<button onClick={() => handleSignOut()}  className='login-btn'>Logout<BiLogOut style={{fontSize:'22px'}}></BiLogOut></button>)
+                    (<button style={{background:'red'}} onClick={() => handleSignOut()}  className='login-btn'>Log out<BiLogOut style={{fontSize:'22px'}}></BiLogOut></button>)
                     :
-                    (<NavLink onClick={() => navigate('/')}  className='login-btn' to='/login'>Login<BiLogIn style={{fontSize:'22px'}}></BiLogIn></NavLink>)
+                    (<NavLink onClick={() => navigate('/')}  className='login-btn' to='/login'>Log in<BiLogIn style={{fontSize:'22px'}}></BiLogIn></NavLink>)
                     }
                     
                 </div>
