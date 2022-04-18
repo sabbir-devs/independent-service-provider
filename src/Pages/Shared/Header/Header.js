@@ -39,7 +39,7 @@ const Header = () => {
                 <NavLink className={({isActive}) => (isActive ? 'active-list' : 'list')} to='/'>Home</NavLink>
                 <NavLink className={({isActive}) => (isActive ? 'active-list' : 'list')} to='/services'>Services</NavLink>
                 <NavLink className={({isActive}) => (isActive ? 'active-list' : 'list')} to='/blog'>Blog</NavLink>
-                <NavLink className={({isActive}) => (isActive ? 'active-list' : 'list')} to='/about'>About us</NavLink>
+                <NavLink className={({isActive}) => (isActive ? 'active-list' : 'list')} to='/about'>About me</NavLink>
                 <div style={{display:'flex', alignItems:'center', justifyContent:'center'}}>
                     {currentUser?.email ? 
                     (<button onClick={() => handleSignOut()}  className='login-btn'>Logout<BiLogOut style={{fontSize:'22px'}}></BiLogOut></button>)
